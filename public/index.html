@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTranslator</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/translate.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">
+                <img class="logo_img" src="assets/translate.png" alt="Logo">
+                <p>MyTranslator</p>
+            </a>
+        </div>
+        <ul class="nav">
+            <li class="nav_item">
+                <a href="#home">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </header>
+    <div class="register_wrapper">
+        <div class="container">
+            <i class="uil uil-times-square form_close" id="reg_cls"></i>
+            <div class="form signup_form">
+                <form action="#" class="rform" method="post" action="/signup">
+                    <h2>Signup</h2>
+                    <div class="input_box">
+                        <input type="text" name="name" id="name-Input" placeholder="Enter Your Name" required />
+                        <i class="uil uil-user email"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="email" name="email" placeholder="Enter Your email" required />
+                        <i class="uil uil-envelope-alt email"></i>
+                    </div>
+
+                    <div class="input_box">
+                        <input type="password" name="password1" placeholder="Create password" required />
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw_hide"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="password" name="password2" placeholder="Confirm password" required />
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw_hide"></i>
+                    </div>
+
+                    <button type="submit" class="button">Signup now</button>
+
+                    <div class="login_singnup">
+                        Already Have An Account? <a href="#" id="login">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="login_wrapper">
+        <div class="container">
+            <i class="uil uil-times-square form_close" id="login_cls"></i>
+            <div class="form login_form">
+                <form action="#" class="lform" method="post" action="/login">
+                    <h2>Login</h2>
+                    <div class="input_box">
+                        <input type="email" name="email" placeholder="Enter Your email" required />
+                        <i class="uil uil-envelope-alt email"></i>
+                    </div>
+
+                    <div class="input_box">
+                        <input type="password" name="password" placeholder="Enter Your password" required />
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw_hide"></i>
+                    </div>
+
+                    <div class="option_field">
+                        <span class="checkbox">
+                            <input type="checkbox" id="check">
+                            <label for="check">Remember Me</label>
+                        </span>
+                        <a href="#" class="forgot_pw">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="button">Login now</button>
+
+                    <div class="login_singnup">
+                        Don't Have An Account? <a href="#" id="signup">Signup</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <section class="disclaimer">
+        <div class="welcome">
+            <h2>Hello User!</h2>
+            <p>Welcome! , your trusted destination for all your translation needs. We're thrilled to have you here with
+                us today.</p><br>
+            <p>Please Login To Use The Translator</p>
+            <button id="register_btn">Sign Up</button>
+            <button id="login_btn">Login</button>
+        </div>
+        <div class="welimg">
+            <img src="assets/mainPage_img.jpg" alt="">
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script type="module" src="test.js"></script>
+</body>
+
+</html>

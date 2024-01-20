@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTranslator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/translate.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">
+                <img class="logo_img" src="assets/translate.png" alt="Logo">
+                <p>MyTranslator</p>
+            </a>
+        </div>
+        <ul class="nav">
+            <li class="nav_item">
+                <a href="#home">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+                <i class="uil uil-times close"></i>
+            </li>
+            <li class="toggle_button">
+                <i class="uil uil-bars menu"></i>
+            </li>
+        </ul>
+    </header>
+    <section class="home">
+        <div class="head">
+            <h1>Welcome, <span id="userName_display"></span>!</h1>
+            <button id="logoutButton">Logout</button>
+        </div>
+        <div class="inout">
+            <div class="intext">
+                <div class="inheadcon">
+                    <div class="intext_head">
+                        <h2>Enter text to translate:</h2>
+                        
+                    </div>
+                    <div class="lanbox">
+                        <h3>Languages : </h3>
+                        <span>
+                            <select id="targetLanguage">
+                                <option value="hi">Hindi</option>
+                                <option value="ta">Tamil</option>
+                                <option value="te">Telugu</option>
+                                <option value="kn">Kannada</option>
+                                <option value="ml">Malayalam</option>
+                                <option value="ja">Japanese</option>
+                                <!-- Add more language options here -->
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                
+                <textarea type="text" id="sourceText" placeholder="Enter Your Text Here......."></textarea>
+            </div>
+            <div class="outtext">
+                <h2>Translated Text :</h2>
+                <div id="translationResult"></div>
+            </div>
+        </div>
+        <div class="btn">
+            <button onclick="translateText()" class="translate_button">Translate</button>
+        </div>
+    </section>
+
+
+    <script>
+        function translateText() {
+            const sourceText = document.getElementById('sourceText').value;
+            const targetLanguage = document.getElementById('targetLanguage').value;
+            const apiKey = '96f3fcf496msh6005c008de7d239p11457ajsn2bc5378c81f2';
+
+            const http = new XMLHttpRequest();
+            const url = `https://microsoft-translator-text.p.rapidapi.com/translate?to=${targetLanguage}&api-version=3.0&profanityAction=NoAction&textType=plain`;
+
+            http.open("POST", url, true);
+            http.setRequestHeader("Content-Type", "application/json");
+            http.setRequestHeader("X-RapidAPI-Key", apiKey);
+            http.setRequestHeader("X-RapidAPI-Host", "microsoft-translator-text.p.rapidapi.com");
+            //handling the response form the http resquest to the API
+            http.onreadystatechange = function () {
+                if (http.readyState === 4 && http.status === 200) {
+                    const response = JSON.parse(http.responseText);
+                    const translatedText = response[0].translations[0].text;
+                    document.getElementById('translationResult').textContent = translatedText;
+                }
+            };
+
+            const data = JSON.stringify([{ Text: sourceText }]);
+            http.send(data);
+        }
+        const logoutButton = document.getElementById('logoutButton');
+
+        // Event listener for the Logout button
+        logoutButton.addEventListener('click', () => {
+            // Send a GET request to the /logout route to initiate the logout process
+            fetch('/logout')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Redirect the user to the login page or perform other actions as needed
+                        window.location.href = '/index.html';
+                    } else {
+                        // Handle logout error if necessary
+                        console.error('Logout failed:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Logout error:', error);
+                });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get('name');
+            if (userName) {
+                const userNameDisplay = document.getElementById('userName_display');
+                if (userNameDisplay) {
+                    userNameDisplay.innerText = userName;
+                }
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+    <script type="module" src="test.js"></script>
+</body>
+
+</html>
