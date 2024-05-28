@@ -10,7 +10,8 @@ const port = process.env.PORT || 3030;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Initialize Firebase Admin SDK with the service account key
-const serviceAccount = require('./key.json');
+const serviceAccountPath = process.env.GOOGLE_APPLICATION_CREDENTIALS || './key.json';
+const serviceAccount = require(serviceAccountPath);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
