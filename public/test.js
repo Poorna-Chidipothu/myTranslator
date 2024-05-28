@@ -75,11 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (data.success) {
                         // Login Successful.
                         alert("Login Successful.");
-                        console.log(data)
-                        console.log(data.userData.name)
 
-                        const userName = data.userData.name;
-                        window.location.href = `/main.html?name=${encodeURIComponent(userName)}`;
+                        const userName = data.userData.name,
+                            userEmail = data.userData.email;
+                        localStorage.setItem('name',userName);
+                        localStorage.setItem('email',userEmail);
+                        window.location.href = `/main.html`;
                     } else {
                         alert("Wrong Password.");
                     }
