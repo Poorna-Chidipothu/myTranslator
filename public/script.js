@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function fillDropdown(dropdown, options) {
         options.forEach((option) => {
             const li = document.createElement("li");
-            const title = option.name + " (" + option.native + ")";
+            const title = option.language;
             li.innerHTML = title;
             li.dataset.value = option.code;
             li.classList.add("option");
@@ -224,6 +224,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     micIcon.addEventListener('click', () => {
         // Initialize SpeechRecognition if not already initialized
+        toast.classList.add('show');
+        toast.querySelector('.success').innerHTML = '<ion-icon name="information-outline"></ion-icon>';
+        toast.querySelector('.success').style.backgroundColor = '#0145ff';
+        toast.querySelector('span').innerHTML = 'Currently mic is working for English Language only.';
+        setTimeout(() => {
+            toast.classList.remove('show');
+            toast.querySelector('.success').innerHTML = '';
+            toast.querySelector('span').innerHTML = '';
+        }, 8000);
         micIcon.classList.toggle('recording');
         if (micIcon.classList.contains('recording')) {
             micIcon.style.backgroundColor = '#ff0a0a';
@@ -285,8 +294,12 @@ document.addEventListener('DOMContentLoaded', () => {
     copyIcon.addEventListener('click', () => {
         navigator.clipboard.writeText(outputLanguageText.value);
         toast.classList.add('show');
+        toast.querySelector('.success').innerHTML = '<ion-icon name="checkmark-outline"></ion-icon>';
+        toast.querySelector('span').innerHTML = 'Copied';
         setTimeout(() => {
             toast.classList.remove('show');
+            toast.querySelector('.success').innerHTML = '';
+            toast.querySelector('span').innerHTML = '';
         }, 2000);
     });
 
