@@ -1,4 +1,4 @@
-# <img src="public/assets/translate.png" width="50" height="50" /> myTranslator
+# <img src="public/assets/translate.png" width="35" height="35" /> myTranslator
 
 This is a Translator Website
   * I Created this Website Using HTML,CSS,JavaScript.
