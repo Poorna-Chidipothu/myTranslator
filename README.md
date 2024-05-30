@@ -10,4 +10,4 @@ I Created a Translated Website Using Google Translator API..
 Live Demo ----------> [Click Here](https://poorna-translator.onrender.com/)
 
 
-![main_image](https://github.com/Poorna-Chidipothu/myTranslator/assets/111335589/f0131290-8129-4ef5-a712-acca132e583f)
+![main_image](https://github.com/Poorna-Chidipothu/myTranslator/assets/111335589/d8a3346a-1a03-4dee-8621-3b5210e6a4ae)
