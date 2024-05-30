@@ -9,4 +9,5 @@ I Created a Translated Website Using Google Translator API..
 
 Live Demo ----------> [Click Here](https://poorna-translator.onrender.com/)
 
-![image](https://github.com/Poorna55/myTranslator/assets/111335589/2aa37e9f-a3f2-4bf4-ab55-ad7ff97e5ba8)
+
+![main_image](https://github.com/Poorna-Chidipothu/myTranslator/assets/111335589/f0131290-8129-4ef5-a712-acca132e583f)
