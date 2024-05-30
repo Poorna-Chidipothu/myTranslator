@@ -1,4 +1,4 @@
-# ![translate](https://github.com/Poorna-Chidipothu/myTranslator/assets/111335589/c6aa3193-6bdd-41e5-92e8-2ee6b4fcf3ec) myTranslator
+# <img src="public/assets/translate.png" width="50" height="50" /> myTranslator
 
 This is a Translator Website
   * I Created this Website Using HTML,CSS,JavaScript.
